@@ -1,4 +1,4 @@
-![image](https://github.com/user-attachments/assets/6ad7f62c-b629-419a-9a74-c5730775bd32)## Question 
+## Question 
 This is an easy challenge, except... it's written in Clojure. Can you find your way through all of these parentheses and come out victorious?
 
 ## Solution
