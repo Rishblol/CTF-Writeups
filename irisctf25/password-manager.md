@@ -3,8 +3,24 @@ It looks like skat finally remembered to use his password manager! One small pro
 
 ## Solution
 Looking at the source code, we see two suspicious code snippets
-![image](https://github.com/user-attachments/assets/48fcb5cf-525d-4913-bbee-7432dbda9a85)
-![image](https://github.com/user-attachments/assets/cee15142-2966-4bd1-9956-ecf1c1b8d209)
+```
+var DB *sql.DB
+var PathReplacer = strings.NewReplacer(
+	"../", "",
+)
+var users map[string]string
+```
+and
+```
+func pages(w http.ResponseWriter, r *http.Request) {
+	// You. Shall. Not. Path traverse!
+	path := PathReplacer.Replace(r.URL.Path)
+
+	if path == "/" {
+		homepage(w, r)
+		return
+	}
+```
 
 We have to try and get into users.json to try and figure the credentials. Going into BurpSuite we change the required path to get into `/users.json` -
 ![image](https://github.com/user-attachments/assets/43a875be-6ece-46c0-bb57-952e6af068f7)
