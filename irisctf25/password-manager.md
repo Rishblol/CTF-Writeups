@@ -3,7 +3,7 @@ It looks like skat finally remembered to use his password manager! One small pro
 
 ## Solution
 Looking at the source code, we see two suspicious code snippets
-```
+```go
 var DB *sql.DB
 var PathReplacer = strings.NewReplacer(
 	"../", "",
@@ -11,7 +11,7 @@ var PathReplacer = strings.NewReplacer(
 var users map[string]string
 ```
 and
-```
+```go
 func pages(w http.ResponseWriter, r *http.Request) {
 	// You. Shall. Not. Path traverse!
 	path := PathReplacer.Replace(r.URL.Path)
