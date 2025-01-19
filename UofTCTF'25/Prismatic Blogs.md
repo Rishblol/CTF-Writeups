@@ -15,7 +15,7 @@ res.json({success: true, posts})
 ```
 
 We do need the credentials from any of the 4 users with their passwords to view all the posts.
-Using this [solver script](https://github.com/Rishblol/CTF-Writeups/blob/main/UofTCTF'25/uploads/prismatic-blogs/solve/solve.py), we can retrieve all the posts and get the flag.
+Using this [solver script](https://github.com/Rishblol/CTF-Writeups/blob/main/UofTCTF'25/uploads/prismatic-blogs/solve/solve.py), we can retrieve all the posts and get the flag.\
 `flag:uoftctf{u51n6_0rm5_d035_n07_m34n_1nj3c710n5_c4n7_h4pp3n}`
 
 
