@@ -65,6 +65,6 @@ router.get('/redeem', isAuth, async (req, res) => {
 });
 ```
 This is perfect grounds for a NoSQL injection.\
-We can exploit this by writing a [Python script]() and we'll get the flag.
+We can exploit this by writing a [Python script]() and we'll get the flag.\
 `flag: srdnlen{6peed_1s_My_0nly_Competition}`
 
