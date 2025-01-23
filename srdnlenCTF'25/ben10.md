@@ -8,7 +8,7 @@ So we've been given a site having a register, login and a home page containing a
 After creating the account and logging in, we are redirected to this page.\
 ![image](https://github.com/user-attachments/assets/3e1f6df9-7a24-4699-92c6-9767736fd005)
 
-Looking at the [source code](), we can see this ```app.secret_key = 'your_secret_key'``` which creates an unsigned flask cookie.
+Looking at the [source code](https://github.com/Rishblol/CTF-Writeups/blob/main/srdnlenCTF'25/files/ben10/app.py), we can see this ```app.secret_key = 'your_secret_key'``` which creates an unsigned flask cookie.
 
 Our aim to access ben10, which we aren't allowed to access because of lack of permissions.
 ![image](https://github.com/user-attachments/assets/bfe17c52-7874-4ae4-bc46-dc30b21b4413)
