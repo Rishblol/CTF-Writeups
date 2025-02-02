@@ -6,7 +6,7 @@ Here we've been given a website which looks like this.
 ![image](https://github.com/user-attachments/assets/119d6828-2eea-4224-a1b9-c89052b8d4fc)
 
 Source code:
-```
+```php
 <?php
 ini_set("error_reporting", 0);
 ini_set("display_errors",0);
@@ -54,7 +54,8 @@ if(isset($_GET['p']) && str_contains($_GET['p'], ",")) {
     echo "Try harder!";
 }
 ?>
-
+```
+```html
 <html>
     <head>
         <title>Paginator</title>
