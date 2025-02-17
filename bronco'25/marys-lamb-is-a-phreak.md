@@ -1,4 +1,4 @@
-![image](https://github.com/user-attachments/assets/34e9c91a-ad89-4e66-9425-afb9488b88b5)## Question
+## Question
 I have this friend mary who has a lamb that only responds to a specific dial tone. Can you help mary find her lamb?
 
 ## Solution
